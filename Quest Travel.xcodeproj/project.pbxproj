@@ -21,6 +21,7 @@
 		BBE92D1318E341FC002ECA40 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE92CF518E341FC002ECA40 /* UIKit.framework */; };
 		BBE92D1B18E341FC002ECA40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BBE92D1918E341FC002ECA40 /* InfoPlist.strings */; };
 		BBE92D1D18E341FC002ECA40 /* Quest_TravelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE92D1C18E341FC002ECA40 /* Quest_TravelTests.m */; };
+		BBE92D2718E342CF002ECA40 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE92D2618E342CF002ECA40 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		BBE92D1818E341FC002ECA40 /* Quest TravelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Quest TravelTests-Info.plist"; sourceTree = "<group>"; };
 		BBE92D1A18E341FC002ECA40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BBE92D1C18E341FC002ECA40 /* Quest_TravelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Quest_TravelTests.m; sourceTree = "<group>"; };
+		BBE92D2618E342CF002ECA40 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBE92D2718E342CF002ECA40 /* MapKit.framework in Frameworks */,
 				BBE92CF418E341FC002ECA40 /* CoreGraphics.framework in Frameworks */,
 				BBE92CF618E341FC002ECA40 /* UIKit.framework in Frameworks */,
 				BBE92CF218E341FC002ECA40 /* Foundation.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		BBE92CF018E341FC002ECA40 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BBE92D2618E342CF002ECA40 /* MapKit.framework */,
 				BBE92CF118E341FC002ECA40 /* Foundation.framework */,
 				BBE92CF318E341FC002ECA40 /* CoreGraphics.framework */,
 				BBE92CF518E341FC002ECA40 /* UIKit.framework */,
