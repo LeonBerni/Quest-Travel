@@ -22,6 +22,10 @@
 		BBE92D1B18E341FC002ECA40 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BBE92D1918E341FC002ECA40 /* InfoPlist.strings */; };
 		BBE92D1D18E341FC002ECA40 /* Quest_TravelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE92D1C18E341FC002ECA40 /* Quest_TravelTests.m */; };
 		BBE92D2718E342CF002ECA40 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE92D2618E342CF002ECA40 /* MapKit.framework */; };
+		BBFBDA8D18E49C7300FDCFF0 /* free-paper-texture-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBFBDA8C18E49C7300FDCFF0 /* free-paper-texture-2.jpg */; };
+		BBFBDA8F18E49CCD00FDCFF0 /* stainedpaper7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBFBDA8E18E49CCD00FDCFF0 /* stainedpaper7.jpg */; };
+		BBFBDA9218E4A85A00FDCFF0 /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBFBDA9018E4A85A00FDCFF0 /* images.jpg */; };
+		BBFBDA9318E4A85A00FDCFF0 /* verdanian_goblin.png in Resources */ = {isa = PBXBuildFile; fileRef = BBFBDA9118E4A85A00FDCFF0 /* verdanian_goblin.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		BBE92D1A18E341FC002ECA40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BBE92D1C18E341FC002ECA40 /* Quest_TravelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Quest_TravelTests.m; sourceTree = "<group>"; };
 		BBE92D2618E342CF002ECA40 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BBFBDA8C18E49C7300FDCFF0 /* free-paper-texture-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "free-paper-texture-2.jpg"; sourceTree = "<group>"; };
+		BBFBDA8E18E49CCD00FDCFF0 /* stainedpaper7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stainedpaper7.jpg; sourceTree = "<group>"; };
+		BBFBDA9018E4A85A00FDCFF0 /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpg; sourceTree = "<group>"; };
+		BBFBDA9118E4A85A00FDCFF0 /* verdanian_goblin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verdanian_goblin.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +129,10 @@
 				BBE92D0318E341FC002ECA40 /* Main.storyboard */,
 				BBE92D0618E341FC002ECA40 /* ViewController.h */,
 				BBE92D0718E341FC002ECA40 /* ViewController.m */,
+				BBFBDA8E18E49CCD00FDCFF0 /* stainedpaper7.jpg */,
+				BBFBDA8C18E49C7300FDCFF0 /* free-paper-texture-2.jpg */,
+				BBFBDA9018E4A85A00FDCFF0 /* images.jpg */,
+				BBFBDA9118E4A85A00FDCFF0 /* verdanian_goblin.png */,
 				BBE92D0918E341FC002ECA40 /* Images.xcassets */,
 				BBE92CF818E341FC002ECA40 /* Supporting Files */,
 			);
@@ -235,6 +247,10 @@
 				BBE92D0A18E341FC002ECA40 /* Images.xcassets in Resources */,
 				BBE92CFC18E341FC002ECA40 /* InfoPlist.strings in Resources */,
 				BBE92D0518E341FC002ECA40 /* Main.storyboard in Resources */,
+				BBFBDA9318E4A85A00FDCFF0 /* verdanian_goblin.png in Resources */,
+				BBFBDA8F18E49CCD00FDCFF0 /* stainedpaper7.jpg in Resources */,
+				BBFBDA8D18E49C7300FDCFF0 /* free-paper-texture-2.jpg in Resources */,
+				BBFBDA9218E4A85A00FDCFF0 /* images.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +482,7 @@
 				BBE92D2218E341FC002ECA40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBE92D2318E341FC002ECA40 /* Build configuration list for PBXNativeTarget "Quest TravelTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +491,7 @@
 				BBE92D2518E341FC002ECA40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

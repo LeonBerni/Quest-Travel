@@ -13,7 +13,7 @@
 {
     CLLocationCoordinate2D pontoMarcador;
     BOOL pontoSendoAdicionado;
-    UIImage *imagemPino;
+    int imagemPino;
 }
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
