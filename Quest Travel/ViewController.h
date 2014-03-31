@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+
 @interface ViewController : UIViewController <MKMapViewDelegate>
 {
     CLLocationCoordinate2D pontoMarcador;
     BOOL pontoSendoAdicionado;
     int imagemPino;
+    MKUserLocation *locationUsuario;
+    BOOL isRouteDraw;
 }
+
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
 
@@ -28,5 +32,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *vmSubtitulo;
 @property (strong, nonatomic) IBOutlet UIButton *vmBtn1;
 @property (strong, nonatomic) IBOutlet UIButton *vmBtn2;
+
+@property (strong, nonatomic) MKMapItem *inicio;
+@property (strong, nonatomic) MKMapItem *destino;
+@property (strong, nonatomic) MKPolylineRenderer *polyRender;
+@property (strong, nonatomic) MKOverlayPathView *polyOverlayRender;
 
 @end

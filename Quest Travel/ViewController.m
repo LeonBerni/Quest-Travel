@@ -14,16 +14,74 @@
 
 @implementation ViewController
 
+MKRoute *routeDetails;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.mapView.delegate = self;
-    [self iniciaComPontos];
+    [self procuraEndereço];
     [[self mapView] setShowsUserLocation:YES];
     [self addGestureRecogniserToMapView];
     pontoSendoAdicionado = NO;
+    isRouteDraw = NO;
 }
+
+//Implementar codigo para tracar a rota
+
+- (void) mostrarRota:(MKAnnotationView*) point
+{
+    MKPlacemark *placeInicio = [[MKPlacemark alloc] initWithCoordinate:self.mapView.userLocation.coordinate addressDictionary:nil];
+    
+    self.inicio = [[MKMapItem alloc] initWithPlacemark:placeInicio];
+
+    MKPlacemark *placeDestino = [[MKPlacemark alloc] initWithCoordinate:[[point annotation] coordinate] addressDictionary:nil];
+    
+    self.destino = [[MKMapItem alloc] initWithPlacemark:placeDestino];
+    
+    [self obterDirecoes];
+}
+
+
+- (void) obterDirecoes{
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    
+    request.source = self.inicio;
+    request.destination = self.destino;
+    request.requestsAlternateRoutes = NO;
+    MKDirections *direcoes = [[MKDirections alloc] initWithRequest:request];
+    
+    [direcoes calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error){
+        if (error) {
+            NSLog(@"Error");
+        } else{
+            [self mostraRota:response];
+        }
+    }];
+}
+
+-(void) mostraRota:(MKDirectionsResponse *)response{
+    for (MKRoute *rota in response.routes) {
+        [[self mapView] removeOverlay:self.polyRender.overlay];
+        [self.mapView addOverlay:rota.polyline level:MKOverlayLevelAboveRoads];
+        isRouteDraw = YES;
+    }
+}
+
+
+
+
+
+
+- (MKOverlayRenderer *) mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay{
+    self.polyRender = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
+    self.polyRender.strokeColor = [UIColor orangeColor];
+    self.polyRender.lineWidth = 5.0;
+    return self.polyRender;
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -109,31 +167,37 @@
         case 12:
             imagemPino = 2;
             break;
-            
         default:
             imagemPino = 0;
             break;
     }
 }
 
+- (void) procuraEndereço {
 
-
-- (void) iniciaComPontos {
-//    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-//    [geocoder geocodeAddressString: @"Alameda Santos" completionHandler:^(NSArray *placemarks, NSError *error) {
-//        for (CLPlacemark* aPlacemark in placemarks) {
-//            CLLocationCoordinate2D coordinate;
-//            MKPointAnnotation *anotacao = [[MKPointAnnotation alloc] init];
-//            coordinate.latitude = [[NSString stringWithFormat:@"%f",aPlacemark.location.coordinate.latitude] doubleValue];
-//            coordinate.longitude = [[NSString stringWithFormat:@"%f",aPlacemark.location.coordinate.longitude] doubleValue];
-//            anotacao.coordinate = coordinate;
-//            anotacao.title = @"teste";
-//            
-//            [[self mapView] addAnnotation: anotacao];
-//        }
-//    }];
 }
 
+
+- (double)distanceFromUser
+{
+    double zoomer = MKMetersBetweenMapPoints(MKMapPointForCoordinate(self.mapView.userLocation.location.coordinate), self.mapView.visibleMapRect.origin);
+    
+    if (zoomer > 50000) {
+        zoomer = 50000;
+    }
+    
+    return zoomer;
+}
+
+
+- (void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    locationUsuario = userLocation;
+    //if (isRouteDraw) {
+        MKPlacemark *placeInicio = [[MKPlacemark alloc] initWithCoordinate:self.mapView.userLocation.coordinate addressDictionary:nil];
+        self.inicio = [[MKMapItem alloc] initWithPlacemark:placeInicio];
+        [self obterDirecoes];
+    //}
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
@@ -170,14 +234,34 @@
                     break;
             }
             
+            UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+            pinView.rightCalloutAccessoryView = rightButton;
             
             pinView.calloutOffset = CGPointMake(0, 32);
         } else {
             pinView.annotation = annotation;
         }
+        
         return pinView;
     }
     return nil;
 }
+
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView rfullyRendered:(BOOL)fullyRendered {
+    if (fullyRendered) {
+        NSLog(@"%f", [self distanceFromUser]);
+    }
+}
+
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    id <MKAnnotation> annotation = [view annotation];
+    if ([annotation isKindOfClass:[MKPointAnnotation class]])
+    {
+        NSLog(@"Clicked");
+        [self mostrarRota:view];
+        isRouteDraw = YES;
+    }
+}
+
 
 @end
