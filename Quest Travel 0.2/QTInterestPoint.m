@@ -10,4 +10,12 @@
 
 @implementation QTInterestPoint
 
+-(void) adicionaEndereco:(double)latitude :(double)longitude
+{
+    CLLocationCoordinate2D ponto;
+    ponto.latitude = latitude;
+    ponto.longitude = longitude;
+    [self setCoordenada:ponto];
+}
+
 @end

@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QTMenuDireitoController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    QTMenuDireitoController * menuDireitoController;
+}
+
+@property (weak, nonatomic) IBOutlet UIView *menuEsquerdo;
+@property (weak, nonatomic) IBOutlet UIView *menuSuperior;
+@property (weak, nonatomic) IBOutlet UIView *menuDireito;
+@property (weak, nonatomic) IBOutlet UIView *menuInferior;
 
 @end

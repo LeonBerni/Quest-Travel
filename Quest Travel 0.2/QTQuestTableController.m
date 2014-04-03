@@ -66,7 +66,7 @@
 {
     self = [super init];
     if (self) {
-        QTInterestList *l = [[QTInterestList alloc] init];
+        QTInterestList *l = [QTInterestList sharedStore];
         [self setInterestPoints: [l list]];
     }
     return self;

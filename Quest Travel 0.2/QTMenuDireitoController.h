@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QTQuestTableController.h"
 
 @interface QTMenuDireitoController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property QTQuestTableController *qtController;
 
 @end

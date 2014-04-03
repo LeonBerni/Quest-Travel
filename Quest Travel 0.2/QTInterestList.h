@@ -14,4 +14,6 @@
 
 @property NSMutableArray *list;
 
++(QTInterestList *) sharedStore;
+
 @end

@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "QTQuest.h"
 
 @interface QTInterestPoint : NSObject
 
 @property NSString *nome;
 @property NSMutableArray *questList;
+@property CLLocationCoordinate2D coordenada;
+
+-(void) adicionaEndereco:(double)latitude :(double)longitude;
 
 @end

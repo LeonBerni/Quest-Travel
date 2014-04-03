@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.qtController = [[QTQuestTableController alloc] initWithPresets];
+    [self.tableView setDelegate:self.qtController];
+    [self.tableView setDataSource:self.qtController];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
